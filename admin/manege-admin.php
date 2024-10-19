@@ -5,7 +5,8 @@
       <h1>MANEGE ADMIN</h1>
       <br><br>
 
-      <a href="#" class="btn-primary">Add admin</a>
+      <a href="add-admin.php" class="btn-primary">Add admin</a>
+      <br><br><br>
       <table class="tbl-full">
         <tr>
           <th>S.N</th>
@@ -19,8 +20,8 @@
           <td>chanuka</td>
           <td>chanuu</td>
           <td>
-            update account
-            delete account
+            <a href="#" class="btn-secondery">Update account</a>
+            <a href="#" class="btn-danger">delete account</a>
           </td>
         </tr>
 
@@ -29,8 +30,8 @@
           <td>chanuka</td>
           <td>chanuu</td>
           <td>
-            update account
-            delete account
+          <a href="#" class="btn-secondery">Update account</a>
+          <a href="#" class="btn-danger">delete account</a>
           </td>
         </tr>
 
@@ -39,8 +40,8 @@
           <td>chanuka</td>
           <td>chanuu</td>
           <td>
-            update account
-            delete account
+          <a href="#" class="btn-secondery">Update account</a>
+          <a href="#" class="btn-danger">delete account</a>
           </td>
         </tr>
 
@@ -49,8 +50,8 @@
           <td>chanuka</td>
           <td>chanuu</td>
           <td>
-            update account
-            delete account
+          <a href="#" class="btn-secondery">Update account</a>
+          <a href="#" class="btn-danger">delete account</a>
           </td>
         </tr>
       </table>
