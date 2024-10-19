@@ -9,12 +9,18 @@
     padding: 1%;
     width: 80%;
     margin: 0 auto;
+    
 }
 
 .text-center{
     text-align: center;
 }
 
+.btn-primary{
+    background-color: 1e90ff;
+    padding: 1%;
+
+}
 /* css for menu */
 
 .menu{
@@ -55,6 +61,19 @@
 .clearfix{
    float: none;
    clear: both; 
+}
+.tbl-full{
+    width:100%;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td{
+    padding: 1%;
 }
 /* css footer */
 .footer{
