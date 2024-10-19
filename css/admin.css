@@ -71,9 +71,55 @@ table tr th{
     padding: 1%;
     text-align: left;
 }
+.btn-primary{
+    background-color: #1e90ff;
+    color: white;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color: #3742fa;
+}
 
+.btn-primary{
+    background-color: #7bed9f;
+    color: white;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color: #2ed573;
+}
+
+
+.btn-secondery{
+    background-color: #1e90ff;
+    color: black;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondery:hover{
+    background-color: #3742fa;
+}
+
+.btn-danger{
+    background-color: #ff6b81;
+    color: white;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    background-color: #ff4757;
+}
 table tr td{
     padding: 1%;
+}
+.tbl-30{
+    width: 30%;
 }
 /* css footer */
 .footer{
