@@ -1,5 +1,7 @@
 <?php
+session_start();
 
+define('SITEURL','http://localhost/food_order_web_site/');
 $dbServerName= "localhost";
 $dbUserName ="root";
 $dbPassword = "";
