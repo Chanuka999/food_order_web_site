@@ -33,6 +33,8 @@
 
          if($res==TRUE){
          $count=mysqli_num_rows($res);
+
+         $n=1;
          if($count>0){
            while($rows=mysqli_fetch_assoc($res)){
                $id=$rows['id'];
@@ -41,7 +43,7 @@
 
                ?>
                 <tr>
-              <td>1</td>
+              <td><?php echo $n++  ?></td>
               <td><?php echo $full_name  ?></td>
               <td><?php echo $username ?></td>
               <td>
