@@ -4,6 +4,15 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
         <br><br>
+
+        <?php
+    if(isset($_SESSION['add'])){
+      echo $_SESSION['add'];
+      unset($_SESSION['add']);
+    }
+
+    
+    ?>
         <form action="" method="POST">
         <table class="tbl-30">
           <tr>
@@ -55,9 +64,11 @@ if(isset($_POST['submit'])){
   $res = mysqli_query($conn,$sql) or die();
 
   if($res == true){
-    echo "Data Inserted";
+     $_SESSION['add'] = "Admin added succesfully";
+     header("location:".SITEURL.'admin/manege-admin.php');
   }else{
-    echo "Failed to insert Data";
+    $_SESSION['add'] = "Failed to add admin";
+    header("location:".SITEURL.'admin/add-admin.php');
   }
 
 }
