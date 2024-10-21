@@ -31,52 +31,38 @@
 
          $res = mysqli_query($conn,$sql);
 
-         if($res=TRUE){
-         
+         if($res==TRUE){
+         $count=mysqli_num_rows($res);
+         if($count>0){
+           while($rows=mysqli_fetch_assoc($res)){
+               $id=$rows['id'];
+               $full_name=$rows['full_name'];
+               $username=$rows['username'];
+
+               ?>
+                <tr>
+              <td>1</td>
+              <td><?php echo $full_name  ?></td>
+              <td><?php echo $username ?></td>
+              <td>
+              <a href="#" class="btn-secondery">Update account</a>
+              <a href="#" class="btn-danger">delete account</a>
+             </td>
+            </tr>
+
+               <?php
+           }
+         }else{
+
+         }
 
        
          }
 
      ?>
-        <tr>
-          <td>1</td>
-          <td>chanuka</td>
-          <td>chanuu</td>
-          <td>
-            <a href="#" class="btn-secondery">Update account</a>
-            <a href="#" class="btn-danger">delete account</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>chanuka</td>
-          <td>chanuu</td>
-          <td>
-          <a href="#" class="btn-secondery">Update account</a>
-          <a href="#" class="btn-danger">delete account</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>chanuka</td>
-          <td>chanuu</td>
-          <td>
-          <a href="#" class="btn-secondery">Update account</a>
-          <a href="#" class="btn-danger">delete account</a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>1</td>
-          <td>chanuka</td>
-          <td>chanuu</td>
-          <td>
-          <a href="#" class="btn-secondery">Update account</a>
-          <a href="#" class="btn-danger">delete account</a>
-          </td>
-        </tr>
+       
+       
+      
       </table>
       
     </div>
