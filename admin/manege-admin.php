@@ -5,6 +5,16 @@
       <h1>MANEGE ADMIN</h1>
       <br><br>
 
+
+     <?php
+    if(isset($_SESSION['add'])){
+      echo $_SESSION['add'];
+      unset($_SESSION['add']);
+    }
+
+    
+    ?>
+    <br><br><br>
       <a href="add-admin.php" class="btn-primary">Add admin</a>
       <br><br><br>
       <table class="tbl-full">
@@ -15,6 +25,19 @@
           <th>Action</th>
         </tr>
 
+        <?php
+
+         $sql = "SELECT * FROM tbl_admin";
+
+         $res = mysqli_query($conn,$sql);
+
+         if($res=TRUE){
+         
+
+       
+         }
+
+     ?>
         <tr>
           <td>1</td>
           <td>chanuka</td>
