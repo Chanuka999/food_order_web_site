@@ -64,7 +64,12 @@ if(isset($_POST['submit'])){
  echo  $id = $_POST['id'];
   echo $full_name = $_POST['full_name'];
   echo  $username = $_POST['username'];
-}
+
+  $sql = "UPDATE tbl_admin SET
+  full_name = '$full_name',
+  username = '$username'
+  WHERE id='$id'
+  ";
 
 $sql = mysqli_query($conn,$sql);
 
@@ -75,7 +80,7 @@ if($res==true){
     $_SESSION['update'] = "<div class='error'>.Failed to delete Admin.</div>";
     header('location:'.SITEURL.'admin/manege-admin.php');
 }
-
+}
 ?>
 
 
