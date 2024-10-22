@@ -56,6 +56,7 @@
               <td><?php echo $full_name  ?></td>
               <td><?php echo $username ?></td>
               <td>
+                <a href="" class="btn-primary">change password</a>
               <a href="<?php echo SITEURL; ?>admin/Update-admin.php?id=<?php echo $id; ?>" class="btn-secondery">Update account</a>
               <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">delete account</a>
              </td>
