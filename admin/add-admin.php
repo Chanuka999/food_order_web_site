@@ -64,10 +64,10 @@ if(isset($_POST['submit'])){
   $res = mysqli_query($conn,$sql) or die();
 
   if($res == true){
-     $_SESSION['add'] = "Admin added succesfully";
+     $_SESSION['add'] = "<div class='success'>.Admin added succesfully.</div>";
      header("location:".SITEURL.'admin/manege-admin.php');
   }else{
-    $_SESSION['add'] = "Failed to add admin";
+    $_SESSION['add'] = "<div class='error'>.Failed to add admin.</div>";
     header("location:".SITEURL.'admin/add-admin.php');
   }
 
