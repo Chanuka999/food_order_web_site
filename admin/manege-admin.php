@@ -22,6 +22,20 @@
       unset($_SESSION['update']);
     }
     
+    if(isset($_SESSION['user-not-found'])){
+      echo $_SESSION['user-not-found'];
+      unset($_SESSION['user-not-found']);
+    }
+
+    if(isset($_SESSION['pwd-not-found'])){
+      echo $_SESSION['pwd-not-found'];
+      unset($_SESSION['pwd-not-found']);
+    }
+
+    if(isset($_SESSION['change-pwd'])){
+      echo $_SESSION['change-pwd'];
+      unset($_SESSION['change-pwd']);
+    }
     ?>
     <br><br><br>
       <a href="add-admin.php" class="btn-primary">Add admin</a>
@@ -56,7 +70,7 @@
               <td><?php echo $full_name  ?></td>
               <td><?php echo $username ?></td>
               <td>
-                <a href="" class="btn-primary">change password</a>
+                <a href="<?php echo SITEURL;?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">change password</a>
               <a href="<?php echo SITEURL; ?>admin/Update-admin.php?id=<?php echo $id; ?>" class="btn-secondery">Update account</a>
               <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">delete account</a>
              </td>
