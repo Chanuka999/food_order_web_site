@@ -21,11 +21,11 @@
     padding: 1%;
 
 }
-.success{
+.error{
     color: #ff4757;
 }
-.error{
-    color: #2ed573;
+.success{
+    color: #048e09;
 }
 /* css for menu */
 
