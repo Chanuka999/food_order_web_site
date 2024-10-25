@@ -18,7 +18,10 @@
             echo $_SESSION['login'];
             unset($_SESSION['login']);
         }
-
+        if(isset($_SESSION['no-login-message'])){
+            echo $_SESSION['no-login-message'];
+            unset($_SESSION['no-login-message']);
+        }
 
         ?>
         <form action="" method="POST" class="text-center">
@@ -36,8 +39,8 @@
 
     <?php 
      if(isset($_POST['submit'])){
-      echo  $username = $_POST['username'];
-      echo $password = md5($_POST['password']);
+       $username = $_POST['username'];
+       $password = md5($_POST['password']);
 
       $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
 
@@ -47,6 +50,7 @@
 
       if($count==1){
         $_SESSION['login'] = "<div class='success'>Login Successfully.</div>";
+        $_SESSION['user'] =$username;
 
         header('location:'.SITEURL.'admin/');
       }else{
