@@ -54,10 +54,10 @@ if(isset($_POST['submit'])){
    // echo "Button clicked";
   $full_name = $_POST["full_name"];
   $username =$_POST["username"];
-  $password = md5($_POST["password"]);
+  $password =md5($_POST["password"]);
 
   $sql = "INSERT INTO tbl_admin(full_name,username,password)
-  values('$full_name','$$username','$$password');";
+  values('$full_name','$username','$password');";
 
 
 
