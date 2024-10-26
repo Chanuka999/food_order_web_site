@@ -83,6 +83,10 @@
         if(isset($_FILES['image']['name'])){
             $image_name=$_FILES['image']['name'];
 
+         if($image_name !=""){
+
+         
+
           $ext = end(explode('.',$image_name));
 
           $image_name = "Food_Category_".rand(000,999).'.'.$ext;
@@ -99,6 +103,7 @@
                 header('location:'.SITEURL.'admin/add-category.php');
                 die();
             }
+        }
         }else{
             $image_name="";
         }
