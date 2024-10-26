@@ -12,16 +12,28 @@
         unset($_SESSION['add']);
       }
 
+      if(isset($_SESSION['upload'])){
+        echo $_SESSION['upload'];
+        unset($_SESSION['upload']);
+      }
+
 
 
         ?>
         <br><br>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <table class="tbl-30">
                 <tr>
                     <td>title:</td>
                     <td>
                         <input type="text" name="title" placeholder="category title">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>select Image:</td>
+                    <td>
+                        <input type="file" name="image">
                     </td>
                 </tr>
                 <tr>
@@ -63,9 +75,36 @@
         }else{
             $active = "No";
         }
+        
+       // print_r($_FILES['image']);
 
-        $sql ="INSERT INTO tbl_category(title,featured,ative)
-        values('$title','$featured','$active');"
+        //die();
+
+        if(isset($_FILES['image']['name'])){
+            $image_name=$_FILES['image']['name'];
+
+          $ext = end(explode('.',$image_name));
+
+          $image_name = "Food_Category_".rand(000,999).'.'.$ext;
+
+
+            $source_path=$_FILES['image']['tmp_name'];
+            $destination_path = "../images/category/".$image_name;
+
+            $upload = move_uploaded_file($source_path,$destination_path);  
+
+            if($upload==false){
+                $_SESSION['upload']="<div class='error'>Failed to upload image</div>";
+
+                header('location:'.SITEURL.'admin/add-category.php');
+                die();
+            }
+        }else{
+            $image_name="";
+        }
+
+        $sql ="INSERT INTO tbl_category(title,image_name,featured,active)
+        values('$title','$image_name','$featured','$active');"
         ;
 
        $res = mysqli_query($conn,$sql);
