@@ -23,50 +23,67 @@ if(isset($_SESSION['add'])){
 <table class="tbl-full">
   <tr>
     <th>S.N</th>
-    <th>Full Name</th>
-    <th>Username</th>
+    <th>Title</th>
+    <th>Images</th>
     <th>Action</th>
   </tr>
 
-  <tr>
-    <td>1</td>
-    <td>chanuka</td>
-    <td>chanuu</td>
-    <td>
-      <a href="#" class="btn-secondery">Update account</a>
-      <a href="#" class="btn-danger">delete account</a>
-    </td>
-  </tr>
+  <?php
+   $sql = "SELECT * from tbl_category";
 
-  <tr>
-    <td>1</td>
-    <td>chanuka</td>
-    <td>chanuu</td>
-    <td>
-    <a href="#" class="btn-secondery">Update account</a>
-    <a href="#" class="btn-danger">delete account</a>
-    </td>
-  </tr>
+   $res = mysqli_query($conn,$sql);
 
-  <tr>
-    <td>1</td>
-    <td>chanuka</td>
-    <td>chanuu</td>
-    <td>
-    <a href="#" class="btn-secondery">Update account</a>
-    <a href="#" class="btn-danger">delete account</a>
-    </td>
-  </tr>
+   $count =mysqli_num_rows($res);
 
-  <tr>
-    <td>1</td>
-    <td>chanuka</td>
-    <td>chanuu</td>
+   $sn=1;
+   if($count>0){
+    
+    while($row=mysqli_fetch_array($res)){
+      $id=$row['id'];
+      $title=$row['title'];
+      $image_name=$row['image_name'];
+      $featured =$row['featured'];
+      $active =$row['active'];
+
+      ?>
+   <tr>
+    <td><?php echo $sn++ ?></td>
+    <td><?php echo $title;  ?></td>
     <td>
-    <a href="#" class="btn-secondery">Update account</a>
-    <a href="#" class="btn-danger">delete account</a>
+      <?php 
+      if($image_name!=""){
+      ?>
+       <img src="<?php echo SITEURL?>images/Category/<?php echo $image_name;  ?>" width="100px" >
+      <?php
+      }else{
+        echo "<div class='error'>Image not added</div>";
+      }
+        ?>
+    </td>
+    <td><?php echo $featured;  ?></td>
+    <td><?php echo $active;  ?></td>
+    <td>
+      <a href="#" class="btn-secondery">Update Category</a>
+      <a href="#" class="btn-danger">delete Category</a>
     </td>
   </tr>
+      <?php
+    }
+   }else{
+    ?>
+  <tr>
+    <td colspan="6"><div class="error">No Category Added.</div></td>
+  </tr>
+    <?php
+
+   
+   }
+
+   ?>
+
+  
+
+  
 </table>
 
    </div>
