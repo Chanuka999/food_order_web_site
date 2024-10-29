@@ -5,6 +5,17 @@
         <h1>Add Food</h1>
 
         <br><br>
+       <?php
+
+      if(isset($_SESSION['upload'])){
+        echo $_SESSION['upload'];
+        unset($_SESSION['upload']);
+      }
+
+
+      ?>
+
+
 
         <form action="" method="POST" enctype="multipart/form-data">
          <table>
@@ -116,10 +127,40 @@
                     $ext = end(explode('.',$image_name));
 
                     $image_name = "Food-name".rand(0000,9999).".".$ext;
+
+                    $src = $_FILES['image']['tmp_name'];
+
+                    $dst ="../images/food/".$image_name;
+
+                    $upload = move_uploaded_file($src,$dst);
+
+                    $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
+
+                    header('location:'.SITEURL.'admin/add-food.php');
+                    die();
+
                 }
             }else{
                 $image_name = "";
             }
+
+            $sql2 = "INSERT INTO tbl_food SET
+            title = '$title',
+            description = '$description',
+            price = '$price',
+            image_name = '$image_name',
+            category_id = '$category',
+            featured = '$featured',
+            active = '$active'
+          ";
+
+          $res2 = mysqli_query($conn,$sql);
+
+          if($res==true){
+
+          }else{
+            p
+          }
         }
      
 
