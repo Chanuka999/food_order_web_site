@@ -18,6 +18,16 @@
         echo $_SESSION['delete'];
         unset($_SESSION['delete']);
       }
+
+      if(isset($_SESSION['upload'])){
+        echo $_SESSION['upload'];
+        unset($_SESSION['upload']);
+      }
+
+      if(isset($_SESSION['unauthorize'])){
+        echo $_SESSION['unauthorize'];
+        unset($_SESSION['unauthorize']);
+      }
       ?>
 
 
@@ -66,7 +76,7 @@ $sn=1;
     <td><?php echo $featured; ?></td>
     <td><?php echo $active; ?></td>
     <td>
-      <a href="#" class="btn-secondery">Update Food</a>
+      <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id ?>" class="btn-secondery">Update Food</a>
       <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">delete Food</a>
     </td>
   </tr>
