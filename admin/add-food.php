@@ -34,7 +34,7 @@
            <tr>
             <td>Price</td>
             <td>
-                <input type="number" placeholder="enter price">
+                <input type="number" name="price" placeholder="enter price">
             </td>
            </tr>
            <tr>
@@ -133,13 +133,15 @@
                     $dst ="../images/food/".$image_name;
 
                     $upload = move_uploaded_file($src,$dst);
-
+                
+                    if($upload==false){
                     $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
 
                     header('location:'.SITEURL.'admin/add-food.php');
                     die();
 
                 }
+            }
             }else{
                 $image_name = "";
             }
@@ -154,14 +156,16 @@
             active = '$active'
           ";
 
-          $res2 = mysqli_query($conn,$sql);
+          $res2 = mysqli_query($conn,$sql2);
 
-          if($res==true){
-
-          }else{
-            p
-          }
-        }
+          if($res2==true){
+            $_SESSION['add'] = "<div class='success'>Food added Successfully</div>";
+            header('location:'.SITEURL.'admin/manege-food.php');
+         }else{
+            $_SESSION['add'] = "<div class='error'>Failed to add food</div>";
+            header('location:'.SITEURL.'admin/manege-food.php');
+         }
+       }
      
 
         ?>
