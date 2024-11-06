@@ -3,119 +3,60 @@
       <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
+           
+            <?php
 
-            <div class="food-menu-box">
+            $sql="SELECT * FROM tbl_food WHERE active='yes'";
+
+            $res = mysqli_query($conn,$sql);
+
+            $count=mysqli_num_rows($res);
+
+            if($count>0){
+              while($row=mysqli_fetch_assoc($res)){
+                $id=$row['id'];
+                $title=$row['title'];
+                $description=$row['description'];
+                $price=$row['price'];
+                $image_name=$row['image_name'];
+                ?>
+               <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                    <?php
+                        
+                    if($image_name == ""){
+                           echo "<div class='error'>Image not Available.</div>";
+                    }else{
+                     ?>
+                 <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                     <?php
+                    }
+
+                    ?>
+                    
 
                 </div>
                 <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
+                    <h4><?php echo $title; ?></h4>
+                    <p class="food-price"><?php echo $price; ?></p>
                     <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
+                       <?php echo $description; ?>
                     </p>
                     <br>
 
                     <a href="#">Order Now</a>
                 </div>
             </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
+            
+                <?php
+              }
+            }else{
+                echo "<div class='error'>Food not found.</div>";
+            }
 
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Smoky Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-burger.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>New Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Nice Burger</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-momo.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="images/menu-momo.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
-
-                </div>
-                <div class="food-menu-desc">
-                    <h4>Chicken Steam Momo</h4>
-                    <p class="food-price">$2.3</p>
-                    <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
-                    </p>
-                    <br>
-
-                    <a href="#">Order Now</a>
-                </div>
-            </div>
+            ?>
+           
+             
             <div class="clearfix"></div>
         </div>
         <p class="text-center">
