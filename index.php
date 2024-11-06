@@ -77,22 +77,35 @@
               $count2 =mysqli_num_rows($res2);
 
               if($count2>0){
+                while($row=mysqli_fetch_assoc($res2)){
                  $id = $row['id'];
                  $title=$row['title'];
-                 $pride=$row['price'];
+                 $price=$row['price'];
                  $description = $row['description'];
                  $image_name=$row['image_name'];
                  ?>
                 <div class="food-menu-box">
                 <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                    <?php
+                      if($image_name==""){
+                                echo "<div class='error'>Image not available.</div>";
+                      }else{
+                        ?>
+                           <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                        <?php
+
+                      }
+                    
+                    
+                     ?>
+                  
 
                 </div>
                 <div class="food-menu-desc">
-                    <h4>Food Title</h4>
-                    <p class="food-price">$2.3</p>
+                    <h4><?php echo $title; ?></h4>
+                    <p class="food-price"><?php echo $price; ?></p>
                     <p class="food-detail">
-                        Made with Italian Sauce,Chicken,and organic vegetables.
+                        <?php echo $description; ?>
                     </p>
                     <br>
 
@@ -101,11 +114,12 @@
             </div>
             
                  <?php
+                }
               }else{
                 echo "<div class='error'>Image not found.</div>";
               }
 
-
+  
             ?>
             
             
