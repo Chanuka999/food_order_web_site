@@ -1,4 +1,13 @@
 <?php  include('partials-front/menu.php');  ?>
+
+<?php
+ if(isset($_GET['category_id'])){
+    $category_id = $_GET['category_id'];
+ }else{
+    header('location:'.SITEURL);
+ }
+
+?>
       <section class="food-search text-center">
         <div class="container">
            <h2>Foods on "Category"</h2>
