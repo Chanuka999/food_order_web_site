@@ -105,19 +105,19 @@
                customer_address = '$customer_address'
                ";
 
-               echo $sql2;die();
+               //echo $sql2;die();
 
             $res2 = mysqli_query($conn,$sql2);
 
             if($res2 == true){
-                $_SESSION['order'] = "<div class='success'>Food orderd Successfully.</div>";
+                $_SESSION['order'] = "<div class='success text-center' >Food orderd Successfully.</div>";
                 header('location:'.SITEURL);
             }
-           }else{
-            $_SESSION['order'] = "<div class='error'>Failed to order food.</div>";
+           else{
+            $_SESSION['order'] = "<div class='error text-center'>Failed to order food.</div>";
             header('location:'.SITEURL);
            }
-
+        }
            ?>
 
         </div>
