@@ -1,5 +1,30 @@
 <?php  include('partials-front/menu.php');  ?>
 
+  <?php
+  if(isset($_GET['food_id'])){
+   $food_id= $_GET['food_id'];
+
+   $sql = "SELECT * FROM tbl_food WHERE id= $food_id";
+
+   $res = mysqli_query($conn,$sql);
+
+   $count = mysqli_num_rows($res);
+
+   if($count==1){
+      $row = mysqli_fetch_assoc($res);
+      $title = $row['title'];
+      $price=$row['price'];
+      $image_name=$row['image_name'];
+
+   }else{
+    header('location:'.SITEURL);
+   }
+  }else{
+   header('lacation:'.SITEURL);
+  }
+
+  ?>
+
       <section class="food-search text-center">
         <div class="container">
            <h2 class="text-center text-white">Fill this form to confirm your order</h2>
@@ -9,11 +34,21 @@
                 <legend>Selected Food</legend>
 
                 <div class="food-menu-img">
-                    <img src="images/menu-pizza.jpg" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                    <?php
+                      
+                      if($image_name == ""){
+                        echo "<div class='error'>Image not available.</div>";
+                      }else{
+                          ?>
+                          <img src="<?php echo SITEURL; ?>images/food/<?php  echo $image_name; ?>" alt="chicke Hawin pizza" class="img-responsive img-curve">
+                          <?php
+                      }
+                    ?>
+                   
                 </div>
                 <div class="food-menu-desc">
-                    <h3>Food Title</h3>
-                   <p class="food-price">$2.3</p>
+                    <h3><?php echo $title; ?></h3>
+                   <p class="food-price"><?php echo $price; ?></p>
 
                    <div class="order-label">Quantity</div>
                    <input type="number" name="qty" class="input-responsive" value="1" required>
