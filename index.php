@@ -109,7 +109,7 @@
                     </p>
                     <br>
 
-                    <a href="order.html">Order Now</a>
+                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>">Order Now</a>
                 </div>
             </div>
             
