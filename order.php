@@ -29,7 +29,7 @@
         <div class="container">
            <h2 class="text-center text-white">Fill this form to confirm your order</h2>
 
-           <form action="#" class="order">
+           <form action=""  method="POST"  class="order">
             <fieldset>
                 <legend>Selected Food</legend>
 
@@ -48,8 +48,10 @@
                 </div>
                 <div class="food-menu-desc">
                     <h3><?php echo $title; ?></h3>
-                   <p class="food-price"><?php echo $price; ?></p>
+                    <input type="hidden" name="food" value="<?php echo $title; ?>">
 
+                   <p class="food-price"><?php echo $price; ?></p>
+                   <input type="hidden" name="price" value="<?php echo $price; ?>">
                    <div class="order-label">Quantity</div>
                    <input type="number" name="qty" class="input-responsive" value="1" required>
                 </div>
@@ -61,16 +63,63 @@
                 <input type="text" name="full-name" placeholder="E.g. chanuka randitha" class="input-responsive" required>
 
                 <div class="order-label">Phone Number</div>
-                <input type="tel" name="Contact" placeholder="E.g. 077284xxxxx" class="input-responsive" required>
+                <input type="tel" name="contact" placeholder="E.g. 077284xxxxx" class="input-responsive" required>
                
                 <div class="order-label">Email</div>
                 <input type="email" name="email" placeholder="E.g. chanukaranditha21@gmail.com" class="input-responsive" required>
 
                 <div class="order-label">Address</div>
-                <input type="address" name="submit" value="Confirm order" class="btn btn-primary" required>
+                <textarea name="address" rows="10" class="input-responsive" required></textarea>
+                <input type="submit" name="submit" value="Confirm order" class="btn btn-primary" required>
 
             </fieldset>
            </form>
+
+           <?php
+           if(isset($_POST['submit'])){
+
+            $food=$_POST['food'];
+            $price = $_POST['price'];
+            $qty= $_POST['qty'];
+            $total = $price * $qty;
+
+            $order_date = date("Y-m-d h:i:sa");
+
+            $status = "Ordered";
+
+            $customer_name = $_POST['full-name'];
+            $customer_contact = $_POST['contact'];
+            $customer_email = $_POST['email'];
+            $customer_address = $_POST['address'];
+
+            $sql2 ="INSERT INTO tbl_order SET
+               food = '$food',
+               price = '$price',
+               qty = '$qty',
+               total = '$total',
+               order_date = '$order_date',
+               status = '$status',
+               customer_name = '$customer_name',
+               customer_contact = '$customer_contact',
+               customer_email = '$customer_email',
+               customer_address = '$customer_address'
+               ";
+
+               echo $sql2;die();
+
+            $res2 = mysqli_query($conn,$sql2);
+
+            if($res2 == true){
+                $_SESSION['order'] = "<div class='success'>Food orderd Successfully.</div>";
+                header('location:'.SITEURL);
+            }
+           }else{
+            $_SESSION['order'] = "<div class='error'>Failed to order food.</div>";
+            header('location:'.SITEURL);
+           }
+
+           ?>
+
         </div>
 
     </section>
