@@ -10,6 +10,13 @@
 
     </section>
 
+    <?php
+      if(isset($_SESSION['order'])){
+        echo $_SESSION['order'];
+        unset($_SESSION['order']);
+      }
+
+    ?>
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
