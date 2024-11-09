@@ -44,11 +44,11 @@
 
 .menu ul li a{
     text-decoration: none;
-    color: #ff6b81;
+    color:rgb(224, 24, 24);
     font-weight: bold;
 }
 .menu ul li a:hover{
-    color: #ff4757;
+    color: rgb(117, 4, 4);
 }
 /* css for main content */
 
@@ -112,14 +112,14 @@ table tr th{
 }
 
 .btn-danger{
-    background-color: #ff6b81;
+    background-color:rgb(224, 24, 24);
     color: white;
     padding: 1%;
     text-decoration: none;
     font-weight: bold;
 }
 .btn-danger:hover{
-    background-color: #ff4757;
+    background-color: rgb(117, 4, 4);
 }
 table tr td{
     padding: 1%;
@@ -129,7 +129,7 @@ table tr td{
 }
 /* css footer */
 .footer{
-    background-color: #ff4757;
+    background-color: rgb(224, 24, 24);
     color: white;
 }
 
