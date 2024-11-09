@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section class="navbar">
-        <div class="container">
+    <section class="navbar" style="background-color: gray;">
+        <div class="container" >
           <div class="logo">
               <a href="#" title="logo">
                   <img src="images/logo.png" alt="Restaurant">
