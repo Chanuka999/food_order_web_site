@@ -1,4 +1,4 @@
-<section class="social">
+<section class="social"  style="background-color:gray;">
 <div class="container text-center">
           <ul>
              <li>
@@ -16,7 +16,7 @@
 
     </section>
 
-    <section class="footer">
+    <section class="footer" style="background-color:gray;">
       <div class="container text-center">
         <p>All rights reserved.Designed By<a href="#">CHANUKA RANDITHA</a></p>
       </div>
