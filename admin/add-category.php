@@ -1,6 +1,6 @@
 <?php include('partials/menu.php');   ?>
 
-<div class="main-content">
+<div class="main-content" style="background-image:url('../images/img4.jpg')">
     <div class="wrapper">
         <h1>ADD CATEGORY</h1>
       <br><br>
