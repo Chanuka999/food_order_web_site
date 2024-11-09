@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    <div class="menu text-center">
+    <div class="menu text-center" style="background-color: gray;">
        <div class="wrapper">
       <ul>
         <li><a href="index.php">Home</a></li>
