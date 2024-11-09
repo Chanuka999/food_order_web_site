@@ -32,11 +32,11 @@
     float: none;
 }
 a{
-    color: #ff6b81;
+    color: rgb(224, 24, 24);
     text-decoration: none;
 }
 a:hover{
-    color: #ff4757;
+    color: rgb(117, 4, 4);
 }
 .btn{
     padding: 1%;
@@ -45,13 +45,13 @@ a:hover{
     border-radius: 5px;
 }
 .btn-primary{
-    background-color: #ff6b81;
+    background-color:rgb(224, 24, 24);
     color: white;
     cursor: pointer;
 }
 .btn-primary:hover{
     color: white;
-    background-color: #ff4757;
+    background-color: rgb(117, 4, 4);
 }
 h2{
     color: #2f3542;
@@ -89,9 +89,11 @@ fieldset{
 }
 .menu{
     line-height: 60px;
+   
 }
 .menu ul{
     list-style-type: none;
+  
 }
 .menu ul li{
     display: inline;
@@ -100,7 +102,7 @@ fieldset{
 
 }
 .food-search{
-    background-image: url(../images/img11.jfif);
+    background-image: url(../images/img2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
